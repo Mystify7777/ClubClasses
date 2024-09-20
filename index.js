@@ -12,7 +12,6 @@ app.get('/back', function(req,res){
 });
 
 
-// Addition route
 app.get('/add', function(req, res) {
     const dnum1 = 100;
     const dnum2 = 25;
@@ -26,7 +25,6 @@ app.get('/add', function(req, res) {
 
 });
 
-// Subtraction route
 app.get('/subtract', function(req, res) {
     const num1 = parseFloat(req.query.num1);
     const num2 = parseFloat(req.query.num2);
@@ -34,7 +32,6 @@ app.get('/subtract', function(req, res) {
     res.send(`The difference between ${num1} and ${num2} is ${result}`);
 });
 
-// Multiplication route
 app.get('/multiply', function(req, res) {
     const num1 = parseFloat(req.query.num1);
     const num2 = parseFloat(req.query.num2);
@@ -42,7 +39,6 @@ app.get('/multiply', function(req, res) {
     res.send(`The product of ${num1} and ${num2} is ${result}`);
 });
 
-// Division route
 app.get('/divide', function(req, res) {
     const num1 = parseFloat(req.query.num1);
     const num2 = parseFloat(req.query.num2);
