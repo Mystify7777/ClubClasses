@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const PORT = 3000;
+const PORT = 3009;
 
 app.use(express.json());
 
@@ -9,6 +9,10 @@ let users = [
   { id: 2, name: "Kumar Aryan", email: "kumar@gmail.com" }
 ];
 
+app.get('/', (req, res) => {
+    res.send('Welcome to the Users API!');
+  });
+  
 app.get('/users', (req, res) => {
   res.json(users);
 });
@@ -44,6 +48,11 @@ app.delete('/users/:id', (req, res) => {
     res.status(404).json({ message: 'User not found' });
   }
 });
+
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Something went wrong!');
+  });
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
